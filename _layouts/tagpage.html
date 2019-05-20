@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<style>
+	.archive-links h3{
+		margin: 2rem 0 1rem;
+	}
+
+	.post-links a{
+		padding: 0.375rem 1rem;
+		margin: 0 -1rem;
+		color: #111;
+	}
+
+
+</style>
+
+<h1>Posts tagged as <strong style="color: #333;text-decoration:underline #ef6461;">{{ page.tag }}</strong></h1>
+
+<section class="post-links">
+	{% for post in site.tags[page.tag] %}
+	<a href="{{ post.url }}">
+		<div>
+			<h3 style="font-weight:500">{{ post.title }}</h3>
+			<small><time>{{ post.date | date: "%B %d, %Y" }}</time></small>
+		</div>
+	</a>
+	{% endfor %}
+</section>
+
+<h2></h2>
+
+<section class="archive-links">
+	<h3>Archive</h3>
+	<div class="tag-container">
+		{% for tag in site.tags %}
+		{% assign t = tag | first %}
+		{% assign posts = tag | last %}
+		<a  href="/tag/{{t | downcase | replace:" ","-" }}.html" class="button grey-button"><span>{{t | downcase | replace:" ","-" }}</span></a>
+		{% endfor %}
+	</div>
+</section>	

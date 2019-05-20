@@ -1,0 +1,32 @@
+---
+layout: default
+title: Contact - Nishal Kulkarni
+---
+
+
+<style>
+
+.simple-form .button {
+	margin:0 0.5rem;
+}
+
+</style>
+
+<h1>Stay in touch</h1>
+
+<p>Like the posts you see here? Sign up to get notified about new content.</p>
+<form class="simple-form" onSubmit="WriteToFile(this)">
+	<input class="input-text" style="width:50%;" id="subscriberEmail"  type="email" name="searchTerm" placeholder="Enter you email address here..." value="" data-_extension-text-contrast="">
+	<button class="button blue-button" type="submit">Submit</button>
+</form>
+
+<p>You can find me at these places:</p>
+
+<section class="contact-info">
+	<ul>
+		<li><strong>Email</strong>: <a href="mailto:{{ site.data.info.email }}">{{ site.data.info.email }}</a></li>	
+		<li><strong>Twitter</strong>: <a href="">@nishalkulkarni</a></li>	
+		<li><strong>LinkedIn</strong>: <a href="">nishalkulkari</a></li>	
+		<li><strong>Reddit</strong>: <a href="">InfinityNishal</a></li>
+	</ul>
+</section>

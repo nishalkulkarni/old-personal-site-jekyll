@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		{% include head.html %}
+	</head>
+
+	<body>
+		<a href="#maincontent" class="skip-link">Skip to main content</a>
+		<header>
+			{% include navigation.html %}
+		</header>
+		<main id="maincontent">
+			<div class="content sub-section">
+				{{ content }}
+			</div>
+		</main>
+		<footer>
+			<section>
+				<small>Made by 
+					<strong>Nishal Kulkarni</strong> /
+					<a href="https://github.com/nishalkulkarni/" target="_blank">View source</a>
+				</small>
+			</section>
+		</footer>
+
+	</body>
+
+</html>

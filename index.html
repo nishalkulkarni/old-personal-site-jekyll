@@ -1,0 +1,85 @@
+---
+layout: default
+title: Nishal Kulkarni
+---
+<section>
+	<h1 class="title">Hi, I'm Nishal.</h1>
+	<p>
+	scelerisque sit amet euismod in, ultrices molestie felis. Suspendisse
+	ultricies, nisi et molestie faucibus, ligula risus mollis metus,
+	fermentum laoreet dui urna sed justo. Nam sollicitudin porttitor leo
+	at porttitor.
+	</p>
+	<p>
+	about ila risus mollis metus, fermentum laoreet dui urna sed justo.
+	Nam sollicitudin porttsse ultricies, nis
+	et molestie faucibus, ligula risus mollis metus, fermentum laoreet dui
+	urna sed justo. sollicitudorttsapien. Suspendisse velit erat,
+	</p>
+</section>
+
+<style>
+.post-links a{
+	padding: 0.5rem 1.25rem;
+	margin: 0 -1.25rem;
+}
+</style>
+<section class="post-links index-section" style="border:none;color:#ccc;">
+	<h2>Recent Articles</h2>
+	{% for post in site.posts limit:5 %}
+	<a href="{{ post.url }}">
+		<h3 style="font-weight:500;">{{ post.title }}</h3>
+	</a>
+	{% endfor %}
+</section>
+
+<section class="post-links index-section">
+	<h2 class="publish-hh">Published Articles<a class="view-all" href="/publications.html" style="padding:0;margin-left:1rem;">View all</a></h2>
+	{% for post in site.data.publications limit:5 %}
+	<a href="{{ post.url }}">
+		<h3 style="font-weight:500;font-size:1rem;">{{ post.title }}</h3>
+	</a>
+	{% endfor %}
+</section>
+
+<section class="index-section">
+	<h2>Current Projects</h2>
+	<table> 
+		<colgroup>
+			<col span="1" style="width: 21%;">
+			<col span="1" style="width: 49%;">
+			<col span="1" style="width: 30%;">
+		</colgroup>
+		<tr style="display:none;">
+			<th>Project Name</th>
+			<th>Project Description</th> 
+			<th>Project Links</th>
+		</tr>	
+		{% for project in site.data.projects %}
+		<tr>
+			<td><h3>{{ project.name }}</h3></td>
+			<td><p>{{  project.description }}</p></td>
+			<td>
+				<div class="buttons">
+					{% if project.project-link and project.project-link!="" and project.project-link!=nil %}
+					<a class="button blue-button" href="{{ project.project-link }}" target="_blank">Project</a>
+					{% endif %}
+					{% if project.source-link and project.source-link!="" and project.source-link!=nil %}
+					<a class="button grey-button" href="{{ project.source-link }}">Source</a>
+					{% endif %}
+				</div>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</section>
+
+<section class="post-links index-section">
+	<h2>Most Popular</h2>
+	{% for post in site.posts limit:5 %}
+	<a href="{{ post.url }}">
+		<h3 style="font-weight:500;">{{ post.title }}</h3>
+	</a>
+	{% endfor %}
+</section>
+

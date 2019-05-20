@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		{% include head.html %}
+	</head>
+
+	<style>
+
+		.article-header{
+			padding:60px 0 2rem;
+		}	
+
+		#articleFooter{
+			padding-bottom: 1.5rem;
+			padding-top: 1rem;
+			border-top: 2px solid #ebebeb;
+			margin: 1.25rem 0 0;
+		}
+
+		.post-meta{
+			font-size: 1rem;
+			color: #424242;
+			margin-bottom:0.75rem;
+		}
+
+		.post-meta a{
+			font-size: 0.8rem;
+			color:rgba(0,0,0,0.6);
+		}
+
+		.post-meta a:hover,
+		.post-meta a:focus,
+		.post-meta a:active{
+			color:#111;
+		}
+
+		aside{
+			padding:4rem 0;
+			background:#f2f2f2;
+			border-top: 2px solid #f0f0f0;
+			border-bottom: 2px solid #f0f0f0;
+		}
+
+		.note{
+			padding: 40px;
+			border-radius: 4px;
+			box-shadow: 3px 5px 20px rgba(0,0,0,.16);
+			overflow:hidden;
+			background:white;
+		}
+
+		.button{
+			font-size:1rem;
+			padding: 0.625rem 1rem;
+		}
+	</style>
+
+	<body>
+		<a href="#maincontent" class="skip-link">Skip to main content</a>
+		<header>
+			{% include navigation.html %}
+		</header>
+		<main id="maincontent">
+			<article class="sub-section">
+				<div class="article-header">
+					<h1 style="font-size:2rem; margin-bottom:0.25rem;" class="">{{page.title}}</h1>
+					<div class="post-meta">
+						<time>{{ page.date | date_to_string }}</time> / 
+						<a href="#articleFooter">Share</a> / 
+						<a href="#articleFooter">Tags</a> / 
+						<a href="#">Edit on GitHub</a>
+
+					</div>
+				</div>
+				<div>
+					{{content}}
+				</div>
+				<div id="articleFooter">
+					<div class="post-meta">
+						<strong>Share:&nbsp;</strong>  
+						<a href="#">Facebook</a> / 
+						<a href="#">LinkedIn</a> /
+						<a href="#">Reddit</a> /
+						<a href="#">Twitter</a>
+
+					</div>
+					<div class="tag-container">
+						<strong>Tags:&nbsp;</strong>
+						{% for tag in page.tags %}
+						<a href="/tag/{{ tag }}.html" class="button grey-button"><span>{{ tag }}</span></a>
+						{% endfor %}
+					</div>
+
+				</div>
+			</article>
+		</main>
+		<aside>
+			<main style="background:transparent;">
+				<div class="note">
+					<div class="author">
+						<h2 style="border:none;">A note from the author</h2>
+						<p>
+						scelerisque sit amet euismod in, ultrices molestie felis. Suspendisse
+						ultricies, nisi et molestie faucibus, ligula risus mollis metus,
+						fermentum laoreet dumolestie faucibus, ligula risus mollis metus,
+						fermentum laoreet dui urna sed justo. Nam sollicitudin porttitor leo
+						at porttitor.
+						</p>
+						<p>
+						<strong>If you enjoy my content, please consider supporting what I do!</strong>
+						</p>
+						<a href="#" class="button yellow-button" target="_blank">Support me</a>
+						<a href="#" class="button red-button" target="_blank">Patreon</a>
+					</div>
+				</div>
+			</main>
+		</aside>
+		<footer> 
+			<section>
+				<small>Made by 
+					<strong>Nishal Kulkarni</strong> /
+					<a href="https://github.com/nishalkulkarni/" target="_blank">View source</a>
+				</small>
+			</section>
+		</footer>
+	</body>
+
+</html>

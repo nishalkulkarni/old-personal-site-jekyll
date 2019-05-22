@@ -15,8 +15,8 @@ title: Contact - Nishal Kulkarni
 <h1>Stay in touch</h1>
 
 <p>Like the posts you see here? Sign up to get notified about new content.</p>
-<form class="simple-form" onSubmit="WriteToFile(this)">
-	<input class="input-text" style="width:50%;" id="subscriberEmail"  type="email" name="searchTerm" placeholder="Enter you email address here..." value="" data-_extension-text-contrast="">
+<form class="simple-form" method="POST" data-netlify="true" name="email"> 
+	<input class="input-text" style="width:50%;" id="subscriberEmail" type="email" name="email" placeholder="Enter you email address here..."/>
 	<button class="button blue-button" type="submit">Submit</button>
 </form>
 

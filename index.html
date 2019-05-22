@@ -28,7 +28,7 @@ title: Nishal Kulkarni
 	<h2>Recent Articles</h2>
 	{% for post in site.posts limit:5 %}
 	<a href="{{ post.url }}">
-		<h3 style="font-weight:500;">{{ post.title }}</h3>
+		<h3 style="font-weight:400;">{{ post.title }}</h3>
 	</a>
 	{% endfor %}
 </section>
@@ -37,7 +37,7 @@ title: Nishal Kulkarni
 	<h2 class="publish-hh">Published Articles<a class="view-all" href="/publications.html" style="padding:0;margin-left:1rem;">View all</a></h2>
 	{% for post in site.data.publications limit:5 %}
 	<a href="{{ post.url }}">
-		<h3 style="font-weight:500;font-size:1rem;">{{ post.title }}</h3>
+		<h3 style="font-weight:400;font-size:1rem;">{{ post.title }}</h3>
 	</a>
 	{% endfor %}
 </section>
@@ -78,7 +78,7 @@ title: Nishal Kulkarni
 	<h2>Most Popular</h2>
 	{% for post in site.posts limit:5 %}
 	<a href="{{ post.url }}">
-		<h3 style="font-weight:500;">{{ post.title }}</h3>
+		<h3 style="font-weight:400;">{{ post.title }}</h3>
 	</a>
 	{% endfor %}
 </section>

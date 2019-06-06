@@ -344,7 +344,15 @@ table p{
 	color: #fff;
 }
 
+.para-link{
+	text-decoration:underline;
+	font-weight:400;
+}
 
+.para-link:focus,
+.para-link:hover{
+	outline: 1px dashed #04448e;
+}
 /* Responsive Styling */
 @media screen and (max-width: 800px) {
 	.post-links a{

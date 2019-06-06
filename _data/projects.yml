@@ -5,7 +5,7 @@
 
 - name: nishalkulkarni.com
   description: Personal portofolio website and blog built using jekyll (P.S. It's this website). 
-  project-link: https://infinitydev.surge.sh/
+  project-link: https://nishalkulkarni.netlify.com
   source-link: https://github.com/nishalkulkarni/startpage
 
 - name: Dotfiles

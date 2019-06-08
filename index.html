@@ -36,12 +36,12 @@ title: Nishal Kulkarni
 	{% endfor %}
 </section>
 
-<section class="index-section">
+<section class="index-section" style="overflow-x:auto;">
 	<h2>Current Projects</h2>
 	<table> 
 		<colgroup>
-			<col span="1" style="width: 21%;">
-			<col span="1" style="width: 49%;">
+			<col span="1" style="width: 25%;">
+			<col span="1" style="width: 45%;">
 			<col span="1" style="width: 30%;">
 		</colgroup>
 		<tr style="display:none;">
@@ -54,7 +54,7 @@ title: Nishal Kulkarni
 			<td><h3>{{ project.name }}</h3></td>
 			<td><p>{{  project.description }}</p></td>
 			<td>
-				<div class="buttons">
+				<div class="buttons" style="float:right;">
 					{% if project.project-link and project.project-link!="" and project.project-link!=nil %}
 					<a class="button blue-button" href="{{ project.project-link }}" target="_blank">Project</a>
 					{% endif %}

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Journal - Nishal Kulkarni
+title: Blog - Nishal Kulkarni
 ---
 <style>
 .filter-count{
@@ -29,9 +29,9 @@ title: Journal - Nishal Kulkarni
 
 </style>
 
-<h1>Journal</h1>
-<p class="popular-tags"><strong>Popular tags</strong>: 
-{% for tag in site.tags %}
+<h1>Blog</h1>
+<p class="popular-tags"><strong>Categories</strong>: 
+{% for tag in site.categories %}
 {% assign t = tag | first %}
 {% assign posts = tag | last %}
 <a href="/tag/{{t | downcase | replace:" ","-" }}.html" class="para-link"><span>{{t | downcase | replace:" ","-" }}</span></a>
@@ -45,8 +45,9 @@ title: Journal - Nishal Kulkarni
 </div>
 
 
-<section class="post-links">
-	<ul style="list-style-type:none;" id="results-container">
+<section class="post-links" id="search-container">
+	<ul id="results-container" style=""></ul>
+	<ul style="list-style-type:none;">
 		{% for post in site.posts %}
 		<li>
 			<a href="{{ post.url }}">
@@ -58,3 +59,16 @@ title: Journal - Nishal Kulkarni
 	</ul>
 </section>
 
+<!-- Script pointing to search-script.js -->
+<script src="/assets/js/search-script.js" type="text/javascript"></script>
+
+<!-- Configuration -->
+<script>
+	SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/search.json',
+		noResultsText: 'try typing',
+		searchResultTemplate: '<a href="{url}"><h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{title}</h3><small><time>{fmtdate}</time></small></a>'
+	})
+</script>

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: jill
-categories: [blog, travel]
+categories: [travel]
 tags: hot summer hola goolag
 ---
 

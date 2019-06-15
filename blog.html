@@ -3,33 +3,30 @@ layout: default
 title: Blog - Nishal Kulkarni
 ---
 <style>
-.filter-count{
-	padding: .5rem 1.75rem;
-	color: #0453ad;
-	font-weight:600;
-	font-size: 1.25rem;
-	line-height: 1.25rem;
-}
-
-.popular-tags a{
-	text-decoration: none;
-}
-
-.popular-tags a:hover,
-.popular-tags a:focus,
-.popular-tags a:active{
-	text-decoration: underline;
-}
-
 .post-links a{
 	padding: 0.375rem 1rem;
 	margin: 0 -1rem;
 	color: #111;
 }
+.popular-tags a{
+	text-decoration: none;
+}
+.popular-tags a:hover,
+.popular-tags a:focus,
+.popular-tags a:active{
+	text-decoration: underline;
+}
+#articleSearch a{
+	margin: 0 0 0 0.5rem;
+	white-space: nowrap;
+	text-align: center;
+}
+
 
 </style>
 
 <h1>Blog</h1>
+
 <p class="popular-tags"><strong>Categories</strong>: 
 {% for tag in site.categories %}
 {% assign t = tag | first %}
@@ -39,36 +36,40 @@ title: Blog - Nishal Kulkarni
 {% endfor %}.
 </p>
 
-<div class="simple-form">
+<div class="simple-form" id="articleSearch">
 	<input id="search-input" class="input-text" type="text" name="searchTerm" placeholder="Type here to filter posts..." value="" >
-	<div id="search-count" class="filter-count">91</div>
+	<a class="button grey-button" onclick="resetList()" >Reset</a>
 </div>
 
 
-<section class="post-links" id="search-container">
-	<ul id="results-container" style=""></ul>
-	<ul style="list-style-type:none;">
-		{% for post in site.posts %}
-		<li>
-			<a href="{{ post.url }}">
-				<h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{{ post.title }}</h3>
-				<small><time>{{ post.date | date: "%B %d, %Y" }}</time></small>
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
-</section>
+	<section class="post-links" id="search-container">
+		<ul id="results-container"  style="list-style-type:none;">
+			{% for post in site.posts %}
+			<li>
+				<a href="{{ post.url }}">
+					<h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{{ post.title }}</h3>
+					<small><time>{{ post.date | date: "%B %d, %Y" }}</time></small>
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
 
-<!-- Script pointing to search-script.js -->
-<script src="/assets/js/search-script.js" type="text/javascript"></script>
+	<!-- Script pointing to search-script.js -->
+	<script src="/assets/js/search-script.js" type="text/javascript"></script>
 
-<!-- Configuration -->
-<script>
-	SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: '/search.json',
-		noResultsText: 'try typing',
-		searchResultTemplate: '<a href="{url}"><h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{title}</h3><small><time>{fmtdate}</time></small></a>'
-	})
-</script>
+	<!-- Configuration -->
+	<script>
+		SimpleJekyllSearch({
+			searchInput: document.getElementById('search-input'),
+			resultsContainer: document.getElementById('results-container'),
+			json: '/search.json',
+			noResultsText: 'No results found.',
+			searchResultTemplate: '<a href="{url}"><h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{title}</h3><small><time>{fmtdate}</time></small></a>'
+		});
+
+function resetList(){
+	document.getElementById("results-container").innerHTML = '{% for post in site.posts %}<li><a href="{{ post.url }}"><h3 style="font-weight:500;font-size: 1.125rem;line-height: 1.125;margin: 0.25rem 0;">{{ post.title }}</h3><small><time>{{ post.date | date: "%B %d, %Y" }}</time></small></a></li>{% endfor %}';
+	document.getElementById("search-input").value = '';
+}
+	</script>

@@ -32,15 +32,6 @@ title: Nishal Kulkarni
 	{% endfor %}
 </section>
 
-<section class="post-links index-section">
-	<h2 class="publish-hh">Published Articles<a class="view-all" href="/publications.html" style="padding:0;margin-left:1rem;font-weight:500;text-decoration:underline;">View all</a></h2>
-	{% for post in site.data.publications limit:5 %}
-	<a href="{{ post.url }}">
-		<h3 style="font-weight:400;font-size:1rem;">{{ post.title }}</h3>
-	</a>
-	{% endfor %}
-</section>
-
 <section class="index-section" style="overflow-x:auto;">
 	<h2>Current Projects</h2>
 	<table> 

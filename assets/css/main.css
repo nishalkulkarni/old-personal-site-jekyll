@@ -48,6 +48,7 @@ nav {
 	margin: 0rem 2rem;
 	height: 90px;
 	display:flex;
+	/* position: static; */
 	align-items:center;
 	justify-content:space-between;
 
@@ -197,24 +198,6 @@ ul{
 
 .index-section a h3{
 	font-size:1.0625rem;
-}
-
-.publish-hh a{
-	margin: 0 0 0 1.125rem;
-	padding: 0;
-	font-size: 0.875rem;
-	display: inline;
-	border: none;
-	color: #0453ad;
-}
-
-.publish-hh a:hover,
-.publish-hh a:focus,
-.publish-hh a:active{
-	color:#04448e;
-	border: none;
-	background:transparent;
-	text-decoration: underline;
 }
 
 table {

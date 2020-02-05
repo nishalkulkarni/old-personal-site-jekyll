@@ -193,6 +193,10 @@ ul{
 	color: #585858;
 }
 
+.post-image{
+	text-align: center;
+	margin: 1rem 0;
+}
 .index-section{
 	margin: 3.75rem 0 0;
 }

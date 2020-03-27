@@ -1,0 +1,107 @@
+---
+layout: default
+title: Payment portal
+---
+
+<style>
+        .gateway{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+        }
+
+        #main-pay{
+                width: 60%;
+        }
+
+        #pay-form input{
+                margin: 1.5rem 0;
+        }
+
+        #pay-form select{
+                margin: 1.5rem 0;
+                display: block;
+                width: 25%;
+        }
+
+        #status-form input{
+                margin: 1.5rem 0;
+        }
+
+        #side-pay{
+                width: 30%;
+                margin: 0 0 0 3rem;
+        }
+        #current-goal{
+        }
+
+        #top-donators ul{
+                list-style: none;
+                width: 100%;
+        }
+
+        #top-donators ul li{
+                list-style: none;
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+        }
+
+        .donator-name{
+                overflow: hidden;
+        }
+        .donator-amount{
+                justify-self: flex-end;
+                overflow: hidden;
+                font-weight: 600;
+        }
+</style>
+
+<section class="gateway">
+        <section id="main-pay">
+                <h2>Payment Gateway</h2>
+                <form action="" id="pay-form">
+                        <input type="text" name="fullname" id="full_name" class="input-text" placeholder="Full name" required>
+                        <input type="email" name="email" id="email_id" class="input-text" placeholder="Email Address" required>
+                        <input type="tel" name="phone" id="phone_num" class="input-text" placeholder="Mobile Number" required>
+                        <input type="number" name="amount" id="pay_amount" class="input-text" placeholder="Amount [Minimum - Rs 30]" min="30" step="10" required>
+                        <select name="Payment method" id="">
+                                <option value="Pay Nishal">Pay Nishal</option>
+                                <option value="Pay Pranav">Pay Pranav</option>
+                        </select>
+                        
+                        <button type="submit" class="button blue-button">Donate Now!</button>
+                        <button type="reset" class="button grey-button">Reset</button>
+                </form>
+                <br/>
+                <h2>Transaction status</h2>
+                <form action="" id="status-form">
+                        <input type="number" name="amount" id="pay_amount" class="input-text" placeholder="Transaction Number" required>
+                        <button type="submit" class="button yellow-button">Check Status</button>
+                </form>
+        </section>
+
+
+        <section id="side-pay">
+                <section id="current-goal">
+                        <h2>Current Statistics</h2>
+                        <small>pledged Rs 300 so far.</small>
+                </section>
+
+                <section id="top-donators">
+                        <h2>Top Donators</h2>
+                        <ul>
+                                <li>
+                                        <p class="donator-name">Vishal Shinde</p>
+                                        <p class="donator-amount">Rs 80<p>
+                                </li>
+                        </ul>
+                        <ul>
+                                <li>
+                                        <p class="donator-name">Pranav Raaghav</p>
+                                        <p class="donator-amount">Rs 60<p>
+                                </li>
+                        </ul>
+                </section>
+        </section>
+</section>

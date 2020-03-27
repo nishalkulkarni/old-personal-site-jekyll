@@ -363,12 +363,15 @@ table p{
 	border-radius: 3%;
 	/*box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.23);*/
 	box-shadow:  2px 2px 5px rgba(0,0,0,0.1), 16px 16px rgba(0,0,0,0.1);
-
+	transition: 1s;
 }
 
 .photo-self img:hover{
-	/*box-shadow: 2px 2px rgba(0,0,0,0.1);
-	transition: 1s;*/
+	/* box-shadow: 2px 2px rgba(0,0,0,0.1); */
+	/* rotate: 20% 20% ; */
+	/* transition: 1s; */
+	/* width: 50%;  */
+	/* margin: 0 -55%; */
 }
 /* Responsive Styling */
 @media screen and (max-width: 800px) {

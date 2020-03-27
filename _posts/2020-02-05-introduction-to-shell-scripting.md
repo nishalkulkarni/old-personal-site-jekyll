@@ -5,11 +5,11 @@ categories: [coding, events, tutorials]
 tags: shell scripting tutorial
 ---
 
-Recently I made a presentation on getting started with shell scrtipting. Answering questions like what is shell scripting? How will it be useful? How does one get started with shell scripting? 
+Recently I made two presentations on getting started with shell scrtipting and its applications. Answering questions like what is shell scripting? How will it be useful? How does one get started with shell scripting? 
 This post is basically a written version of the presentation.
 
 <div class="post-image">
-    <img src="../assets/images/posts/shell_collage.jpg" alt="Me giving the presentation" width="100%" >VIT - Linux Users' Group - Session 1 [An Introduction to Shell Scripting]<img>
+    <img src="../assets/images/posts/shell_collage.jpg" alt="Me giving the presentation" width="100%" >VIT - Linux Users' Group - Session 1 and 2 [An Introduction to Shell Scripting]<img>
 </div>
 
 

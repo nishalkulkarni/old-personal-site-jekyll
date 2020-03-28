@@ -21,7 +21,8 @@ title: Payment portal
         #pay-form select{
                 margin: 1.5rem 0;
                 display: block;
-                width: 25%;
+                width: 45%;
+                padding: .5rem;
         }
 
         #status-form input{
@@ -60,12 +61,12 @@ title: Payment portal
 <section class="gateway">
         <section id="main-pay">
                 <h2>Payment Gateway</h2>
-                <form action="" id="pay-form">
+                <form id="pay-form" name="payform" method="POST" data-netlify="true">
                         <input type="text" name="fullname" id="full_name" class="input-text" placeholder="Full name" required>
                         <input type="email" name="email" id="email_id" class="input-text" placeholder="Email Address" required>
                         <input type="tel" name="phone" id="phone_num" class="input-text" placeholder="Mobile Number" required>
                         <input type="number" name="amount" id="pay_amount" class="input-text" placeholder="Amount [Minimum - Rs 30]" min="30" step="10" required>
-                        <select name="Payment method" id="">
+                        <select name="paymethod" id="pay_method">
                                 <option value="Pay Nishal">Pay Nishal</option>
                                 <option value="Pay Pranav">Pay Pranav</option>
                         </select>
@@ -105,3 +106,50 @@ title: Payment portal
                 </section>
         </section>
 </section>
+
+<script>
+        // window.addEventListener("load",function() {
+        //         document.getElementById('pay-form').addEventListener("submit",function(e) {
+        //                 e.preventDefault(); // before the code
+        //                 /* do what you want with the form */
+        //                 var obj = {};
+        //                 obj.name = document.getElementById('full_name').value;
+        //                 obj.email = document.getElementById('email_id').value;
+        //                 obj.phone = document.getElementById('phone_num').value;
+        //                 obj.amount = document.getElementById('pay_amount').value;
+        //                 obj.paymethod = document.getElementById('pay_method').value;
+        //                 console.log(obj);
+
+
+        //                 var fname = '';
+        //                 var d = new Date();
+        //                 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        //                 fname += months[d.getMonth()];
+        //                 fname += d.getFullYear();
+        //                 fname += '.json';
+        //                 console.log(fname);
+        //                 // Should be triggered on form submit
+        //                 // var json = JSON.stringify(obj);
+
+        //                 var fs = require('fs');
+        //                 // fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+
+        //                 //if you want to append it read the json file and convert it back to an object
+
+        //                 fs.readFile(fname, 'utf8', function readFileCallback(err, data){
+        //                         if (err){
+        //                                 console.log(err);
+        //                         } else {
+        //                                 obj2 = JSON.parse(data); //now it an object
+        //                                 obj += obj2;
+        //                                 console.log(obj)
+        //                                 json = JSON.stringify(obj); //convert it back to json
+        //                                 fs.writeFile(fname, json, 'utf8', callback); // write it back 
+        //                         }
+        //                 });
+
+        //                 alert('hi');
+        //                 document.getElementById('pay-form').reset();
+        //         });
+        // });
+</script>

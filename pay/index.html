@@ -4,54 +4,55 @@ title: Payment portal
 ---
 
 <style>
-        .gateway{
+        .gateway {
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
         }
 
-        #main-pay{
+        #main-pay {
                 width: 60%;
         }
 
-        #pay-form input{
+        #pay-form input {
                 margin: 1.5rem 0;
         }
 
-        #pay-form select{
+        #pay-form select {
                 margin: 1.5rem 0;
                 display: block;
                 width: 45%;
                 padding: .5rem;
         }
 
-        #status-form input{
+        #status-form input {
                 margin: 1.5rem 0;
         }
 
-        #side-pay{
+        #side-pay {
                 width: 30%;
                 margin: 0 0 0 3rem;
         }
-        #current-goal{
-        }
 
-        #top-donators ul{
+        #current-goal {}
+
+        #top-donators ul {
                 list-style: none;
                 width: 100%;
         }
 
-        #top-donators ul li{
+        #top-donators ul li {
                 list-style: none;
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
         }
 
-        .donator-name{
+        .donator-name {
                 overflow: hidden;
         }
-        .donator-amount{
+
+        .donator-amount {
                 justify-self: flex-end;
                 overflow: hidden;
                 font-weight: 600;
@@ -62,22 +63,29 @@ title: Payment portal
         <section id="main-pay">
                 <h2>Payment Gateway</h2>
                 <form id="pay-form" name="payform" method="POST" data-netlify="true">
-                        <input type="text" name="fullname" id="full_name" class="input-text" placeholder="Full name" required>
-                        <input type="email" name="email" id="email_id" class="input-text" placeholder="Email Address" required>
-                        <input type="tel" name="phone" id="phone_num" class="input-text" placeholder="Mobile Number" required>
-                        <input type="number" name="amount" id="pay_amount" class="input-text" placeholder="Amount [Minimum - Rs 30]" min="30" step="10" required>
+                        <div hidden aria-hidden="true"><label>Don’t fill this out if you're human: <input
+                                                name="bot-field" /></label></div>
+                        <input type="text" name="fullname" id="full_name" class="input-text" placeholder="Full name"
+                                required>
+                        <input type="email" name="email" id="email_id" class="input-text" placeholder="Email Address"
+                                required>
+                        <input type="tel" name="phone" id="phone_num" class="input-text" placeholder="Mobile Number"
+                                required>
+                        <input type="number" name="amount" id="pay_amount" class="input-text"
+                                placeholder="Amount [Minimum - Rs 30]" min="30" step="10" required>
                         <select name="paymethod" id="pay_method">
                                 <option value="Pay Nishal">Pay Nishal</option>
                                 <option value="Pay Pranav">Pay Pranav</option>
                         </select>
-                        
+
                         <button type="submit" class="button blue-button">Donate Now!</button>
                         <button type="reset" class="button grey-button">Reset</button>
                 </form>
-                <br/>
+                <br />
                 <h2>Transaction status</h2>
                 <form action="" id="status-form">
-                        <input type="number" name="amount" id="pay_amount" class="input-text" placeholder="Transaction Number" required>
+                        <input type="number" name="amount" id="pay_amount" class="input-text"
+                                placeholder="Transaction Number" required>
                         <button type="submit" class="button yellow-button">Check Status</button>
                 </form>
         </section>
@@ -108,48 +116,76 @@ title: Payment portal
 </section>
 
 <script>
-        // window.addEventListener("load",function() {
-        //         document.getElementById('pay-form').addEventListener("submit",function(e) {
+        const processForm = form => {
+                const data = new FormData(form)
+                data.append('form-name', 'payform');
+                fetch('/', {
+                        method: 'POST',
+                        body: data,
+                })
+                        .then(() => {
+                                alert('Successful Submission.');
+                                // form.innerHTML = `<div class="form--success">Almost there! Check your inbox for a confirmation e-mail.</div>`;
+                        })
+                        .catch(error => {
+                                alert(`Error: ${error}`);
+                                // form.innerHTML = `<div class="form--error">Error: ${error}</div>`;
+                        })
+        }
+
+        const payForm = document.querySelector('#pay-form')
+        if (payForm) {
+                payForm.addEventListener('submit', e => {
+                        e.preventDefault();
+                        processForm(payForm);
+                })
+        }
+
+
+
+        // window.addEventListener("load", function () {
+        //         document.getElementById('pay-form').addEventListener("submit", function (e) {
         //                 e.preventDefault(); // before the code
-        //                 /* do what you want with the form */
-        //                 var obj = {};
-        //                 obj.name = document.getElementById('full_name').value;
-        //                 obj.email = document.getElementById('email_id').value;
-        //                 obj.phone = document.getElementById('phone_num').value;
-        //                 obj.amount = document.getElementById('pay_amount').value;
-        //                 obj.paymethod = document.getElementById('pay_method').value;
-        //                 console.log(obj);
+        //                 processForm();
+                        /* do what you want with the form */
+                        // var obj = {};
+                        // obj.name = document.getElementById('full_name').value;
+                        // obj.email = document.getElementById('email_id').value;
+                        // obj.phone = document.getElementById('phone_num').value;
+                        // obj.amount = document.getElementById('pay_amount').value;
+                        // obj.paymethod = document.getElementById('pay_method').value;
+                        // console.log(obj);
 
 
-        //                 var fname = '';
-        //                 var d = new Date();
-        //                 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        //                 fname += months[d.getMonth()];
-        //                 fname += d.getFullYear();
-        //                 fname += '.json';
-        //                 console.log(fname);
-        //                 // Should be triggered on form submit
-        //                 // var json = JSON.stringify(obj);
+                        // var fname = '';
+                        // var d = new Date();
+                        // var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        // fname += months[d.getMonth()];
+                        // fname += d.getFullYear();
+                        // fname += '.json';
+                        // console.log(fname);
+                        // Should be triggered on form submit
+                        // var json = JSON.stringify(obj);
 
-        //                 var fs = require('fs');
-        //                 // fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+                        // var fs = require('fs');
+                        // fs.writeFile('myjsonfile.json', json, 'utf8', callback);
 
-        //                 //if you want to append it read the json file and convert it back to an object
+                        //if you want to append it read the json file and convert it back to an object
 
-        //                 fs.readFile(fname, 'utf8', function readFileCallback(err, data){
-        //                         if (err){
-        //                                 console.log(err);
-        //                         } else {
-        //                                 obj2 = JSON.parse(data); //now it an object
-        //                                 obj += obj2;
-        //                                 console.log(obj)
-        //                                 json = JSON.stringify(obj); //convert it back to json
-        //                                 fs.writeFile(fname, json, 'utf8', callback); // write it back 
-        //                         }
-        //                 });
+                        // fs.readFile(fname, 'utf8', function readFileCallback(err, data){
+                        //         if (err){
+                        //                 console.log(err);
+                        //         } else {
+                        //                 obj2 = JSON.parse(data); //now it an object
+                        //                 obj += obj2;
+                        //                 console.log(obj)
+                        //                 json = JSON.stringify(obj); //convert it back to json
+                        //                 fs.writeFile(fname, json, 'utf8', callback); // write it back 
+                        //         }
+                        // });
 
-        //                 alert('hi');
-        //                 document.getElementById('pay-form').reset();
+                        // alert('hi');
+                        // document.getElementById('pay-form').reset();
         //         });
         // });
 </script>

@@ -5,6 +5,7 @@ import Navbar from "./navigation"
 const Layout = ({ children }) => {
   return (
     <>
+      <a href="#maincontent" class="skip-link">Skip to main content</a>
       <header style={{
         background: "white",
         maxWidth: "800px",

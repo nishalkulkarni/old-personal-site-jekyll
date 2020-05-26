@@ -1,51 +1,52 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import Navbar from "./navigation"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <header style={{
+        background: "white",
+        maxWidth: "800px",
+        margin: "0rem auto",
+        borderLeft: "2px solid #f0f0f0",
+        borderRight: "2px solid #f0f0f0"
+      }}>
+        <Navbar />
+      </header>
+      <main id="maincontent" style={{
+        background: "white",
+        maxWidth: "800px",
+        margin: "0rem auto",
+        borderLeft: "2px solid #f0f0f0",
+        borderRight: "2px solid #f0f0f0"
+      }}>
+        <div className="content sub-section">
+          {children}
+        </div>
+      </main>
+      <footer style={{
+        background: "white",
+        maxWidth: "800px",
+        margin: "0rem auto",
+        borderLeft: "2px solid #f0f0f0",
+        borderRight: "2px solid #f0f0f0"
+      }}>
+        <section style={{
+          height: "100px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          background: "white",
+          margin: "0rem 2rem"
+        }}>
+          <small>Made by <strong>Nishal Kulkarni</strong> /
+					<a href="https://github.com/nishalkulkarni/nishalkulkarni.com" target="_blank">View source</a>
+          </small>
+        </section>
+      </footer>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

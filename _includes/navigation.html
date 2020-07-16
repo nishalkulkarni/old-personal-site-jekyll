@@ -1,3 +1,9 @@
+<script>
+  if (localStorage.getItem("color-mode") === "dark") {
+    document.documentElement.setAttribute("color-mode", "dark");
+  }
+</script>
+
 <nav>
   <div class="nav-brand">
     <a href="/index.html">
@@ -8,41 +14,35 @@
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="/contact.html">Contact</a></li>
     <li><a href="{{site.data.info.github-url}}" target="_blank">GitHub</a></li>
+
     <li>
-      <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" />
-        <div class="slider round"></div>
-      </label>
+      <button
+        class="color-mode-btn light--hidden"
+        a aria-label="Toggle light mode"
+      >
+        <i class="far fa-sun"></i>
+      </button>
+      <button class="color-mode-btn dark--hidden" aria-label="Toggle dark mode">
+        <i class="far fa-moon"></i>
+      </button>
     </li>
   </ul>
 </nav>
 
 <script>
-  const toggleSwitch = document.querySelector(
-    '.theme-switch input[type="checkbox"]'
-  );
-
-  const currentTheme = localStorage.getItem("theme")
-    ? localStorage.getItem("theme")
-    : null;
-
-  if (currentTheme) {
-    document.documentElement.setAttribute("data-theme", currentTheme);
-
-    if (currentTheme === "dark") {
-      toggleSwitch.checked = true;
+  const toggleColorMode = (e) => {
+    if (e.currentTarget.classList.contains("light--hidden")) {
+      document.documentElement.setAttribute("color-mode", "light");
+      localStorage.setItem("color-mode", "light");
+      return;
     }
-  }
 
-  function switchTheme(e) {
-    if (e.target.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
-  }
+    document.documentElement.setAttribute("color-mode", "dark");
+    localStorage.setItem("color-mode", "dark");
+  };
 
-  toggleSwitch.addEventListener("change", switchTheme, false);
+  const toggleColorButtons = document.querySelectorAll(".color-mode-btn");
+  toggleColorButtons.forEach((btn) => {
+    btn.addEventListener("click", toggleColorMode);
+  });
 </script>

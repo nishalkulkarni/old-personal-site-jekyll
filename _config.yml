@@ -27,4 +27,5 @@ exclude:
         - vendor/cache/
         - vendor/gems/
         - vendor/ruby/
+        - portfolio-react/
         - tag_generator.py

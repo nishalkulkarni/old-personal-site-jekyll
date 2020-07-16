@@ -1,44 +1,48 @@
-<style>
-.nav-brand a{
-	font-weight:600;
-	color:#333;
-}
-
-.nav-links {
-	list-style-type: none;
-	overflow: hidden;
-}
-
-.nav-links li{
-	float: left;
-}
-
-.nav-links li a{
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	margin: 0 0.5rem;
-	color: #585858;
-	font-weight:400;
-}
-
-nav a:hover, 
-nav a:focus, 
-nav a:active{
-	color:#111;
-	text-decoration: underline;
-}
-
-</style>
 <nav>
-	<div class="nav-brand">
-		<a href="/index.html"> 
-			<span>Nishal Kulkarni</span>
-		</a>
-	</div>
-	<ul class="nav-links">
-		<li><a href="/blog.html">Blog</a></li>
-		<li><a href="/contact.html">Contact</a></li>
-		<li><a href="{{site.data.info.github-url}}" target="_blank">GitHub</a></li>
-	</ul>
-</nav> 
+  <div class="nav-brand">
+    <a href="/index.html">
+      <span>Nishal Kulkarni</span>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="{{site.data.info.github-url}}" target="_blank">GitHub</a></li>
+    <li>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const toggleSwitch = document.querySelector(
+    '.theme-switch input[type="checkbox"]'
+  );
+
+  const currentTheme = localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : null;
+
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+
+    if (currentTheme === "dark") {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  toggleSwitch.addEventListener("change", switchTheme, false);
+</script>

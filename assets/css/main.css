@@ -188,16 +188,10 @@ main {
 .skip-link {
   position: absolute;
   top: -100px;
-  /* left: calc((100vw - 808px)/2); */
-  /* right: calc((100vw - 808px)/2); */
   left: 0;
-
   z-index: 100;
   padding: 0.5rem;
-  /* line-height:58px; */
-  /* max-width:800px; */
   text-align: center;
-  /* height: 58px; */
   background: var(--primary-bg-color);
   color: var(--text-weight-1);
 }
@@ -508,4 +502,13 @@ table p {
 }
 
 @media screen and (max-width: 576px) {
+	.photo-self{
+		display: none;
+		width: 0%;
+	}
+
+	.info-self{
+		width: 100%;
+	}
+
 }

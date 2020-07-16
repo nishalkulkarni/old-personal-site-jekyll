@@ -41,8 +41,7 @@ const Layout = ({ children }) => {
           background: "white",
           margin: "0rem 2rem"
         }}>
-          <small>Made by <strong>Nishal Kulkarni</strong> /
-					<a href="https://github.com/nishalkulkarni/nishalkulkarni.com" target="_blank">View source</a>
+          <small>Made by <strong>Nishal Kulkarni</strong> / <a href="https://github.com/nishalkulkarni/nishalkulkarni.com" target="_blank">View source</a>
           </small>
         </section>
       </footer>
